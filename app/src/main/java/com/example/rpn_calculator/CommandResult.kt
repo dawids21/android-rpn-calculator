@@ -4,4 +4,6 @@ interface CommandResult {
 
     fun isSuccess(): Boolean
 
+    fun getMessage(): String
+
 }

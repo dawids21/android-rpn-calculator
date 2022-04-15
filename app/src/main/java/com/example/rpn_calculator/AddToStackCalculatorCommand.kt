@@ -2,12 +2,16 @@ package com.example.rpn_calculator
 
 class AddToStackCalculatorCommand(
     private val stack: ArrayDeque<Double>,
-    private val number: Double
+    private val number: Double?
 ) :
     CalculatorCommand {
 
     override fun execute(): CommandResult {
-        stack.addLast(number)
+        if (number == null) {
+            stack.addLast(stack.last())
+        } else {
+            stack.addLast(number)
+        }
         return SuccessCommandResult()
     }
 

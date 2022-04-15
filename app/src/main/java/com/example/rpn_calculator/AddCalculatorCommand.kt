@@ -1,9 +1,9 @@
 package com.example.rpn_calculator
 
-class AddCalculatorCommand(private val stack: ArrayDeque<Int>) : CalculatorCommand {
+class AddCalculatorCommand(private val stack: ArrayDeque<Double>) : CalculatorCommand {
 
-    private var a = 0
-    private var b = 0
+    private var a = 0.0
+    private var b = 0.0
 
     override fun execute(): CommandResult {
         if (stack.count() < 2) {

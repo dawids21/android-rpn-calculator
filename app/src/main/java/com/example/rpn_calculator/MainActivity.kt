@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         private const val STACK_TAG = "Stack"
     }
 
-    private val stack: ArrayDeque<Int> = ArrayDeque()
+    private val stack: ArrayDeque<Double> = ArrayDeque()
     private val commandHandler = CalculatorCommandHandler()
 
     private lateinit var binding: ActivityMainBinding
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.button.setOnClickListener {
-            val command = AddToStackCalculatorCommand(stack, 5)
+            val command = AddToStackCalculatorCommand(stack, 5.0)
             Log.i(COMMAND_TAG, "Sending $command")
             commandHandler.handle(command)
             Log.i(STACK_TAG, "Current stack: $stack")

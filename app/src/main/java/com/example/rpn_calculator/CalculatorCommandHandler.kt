@@ -1,6 +1,12 @@
 package com.example.rpn_calculator
 
+import android.util.Log
+
 class CalculatorCommandHandler {
+
+    companion object {
+        private const val TAG = "CommandHandler"
+    }
 
     private val commands: ArrayDeque<CalculatorCommand> = ArrayDeque()
 
@@ -9,7 +15,7 @@ class CalculatorCommandHandler {
         if (result.isSuccess()) {
             commands.addLast(command)
         }
-        //TODO handle when not success
+        Log.e(TAG, "Command failure: $command, message: ${result.getMessage()}")
     }
 
     fun undo() {

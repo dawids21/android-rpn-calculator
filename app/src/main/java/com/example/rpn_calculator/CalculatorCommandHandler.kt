@@ -3,10 +3,9 @@ package com.example.rpn_calculator
 class CalculatorCommandHandler {
 
     private val commands: ArrayDeque<CalculatorCommand> = ArrayDeque()
-    private val stack: ArrayDeque<Int> = ArrayDeque()
 
     fun handle(command: CalculatorCommand) {
-        val result = command.execute(stack)
+        val result = command.execute()
         if (result.isSuccess()) {
             commands.addLast(command)
         }
@@ -15,6 +14,6 @@ class CalculatorCommandHandler {
 
     fun undo() {
         val commandToUndo = commands.removeLast()
-        commandToUndo.undo(stack)
+        commandToUndo.undo()
     }
 }

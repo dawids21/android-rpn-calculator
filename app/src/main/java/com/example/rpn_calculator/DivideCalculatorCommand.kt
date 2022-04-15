@@ -11,6 +11,10 @@ class DivideCalculatorCommand(private val stack: ArrayDeque<Double>) : Calculato
         }
 
         b = stack.removeLast()
+        if (b == 0.0) {
+            stack.addLast(b)
+            return FailureCommandResult("Can not divide by zero")
+        }
         a = stack.removeLast()
         stack.addLast(a / b)
         return SuccessCommandResult()

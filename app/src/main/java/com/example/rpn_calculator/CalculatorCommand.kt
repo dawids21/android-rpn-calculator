@@ -4,4 +4,6 @@ interface CalculatorCommand {
 
     fun execute(stack: ArrayDeque<Int>): CommandResult
 
+    fun undo(stack: ArrayDeque<Int>)
+
 }

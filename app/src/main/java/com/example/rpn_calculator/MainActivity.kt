@@ -2,9 +2,15 @@ package com.example.rpn_calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.rpn_calculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        private const val COMMAND_TAG = "CalculatorCommand"
+        private const val STACK_TAG = "Stack"
+    }
 
     private val stack: ArrayDeque<Int> = ArrayDeque()
     private val commandHandler = CalculatorCommandHandler()
@@ -18,13 +24,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.button.setOnClickListener {
-            commandHandler.handle(AddToStackCalculatorCommand(stack, 5))
-            println(stack)
+            val command = AddToStackCalculatorCommand(stack, 5)
+            Log.i(COMMAND_TAG, "Sending $command")
+            commandHandler.handle(command)
+            Log.i(STACK_TAG, "Current stack: $stack")
         }
 
         binding.undoButton.setOnClickListener {
+            Log.i(COMMAND_TAG, "Undo command")
             commandHandler.undo()
-            println(stack)
+            Log.i(STACK_TAG, "Current stack: $stack")
         }
     }
 }

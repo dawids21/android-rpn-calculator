@@ -13,6 +13,9 @@ class CalculatorCommandHandler {
     }
 
     fun undo() {
+        if (commands.none()) {
+            return
+        }
         val commandToUndo = commands.removeLast()
         commandToUndo.undo()
     }

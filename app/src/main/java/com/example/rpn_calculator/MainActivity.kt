@@ -21,5 +21,10 @@ class MainActivity : AppCompatActivity() {
             commandHandler.handle(AddToStackCalculatorCommand(stack, 5))
             println(stack)
         }
+
+        binding.undoButton.setOnClickListener {
+            commandHandler.undo()
+            println(stack)
+        }
     }
 }

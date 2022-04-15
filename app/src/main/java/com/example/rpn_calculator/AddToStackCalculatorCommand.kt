@@ -1,6 +1,7 @@
 package com.example.rpn_calculator
 
-class AddToStackCalculatorCommand(private val stack: ArrayDeque<Int>, private val number: Int) : CalculatorCommand {
+class AddToStackCalculatorCommand(private val stack: ArrayDeque<Int>, private val number: Int) :
+    CalculatorCommand {
 
     override fun execute(): CommandResult {
         stack.addLast(number)

@@ -1,8 +1,8 @@
 package com.example.rpn_calculator
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.example.rpn_calculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

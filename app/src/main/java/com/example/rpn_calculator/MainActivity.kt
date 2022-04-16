@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        title = "RPN Calculator"
         refreshStackViews()
         binding.firstStack.setBackgroundColor(appSettings.stackBackgroundColor)
         binding.firstStack.setBackgroundColor(appSettings.stackBackgroundColor)
@@ -101,6 +102,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.enterButton.setOnClickListener {
+            if (binding.editorView.text.isBlank()) {
+                return@setOnClickListener
+            }
             sendCommand(
                 AddToStackCalculatorCommand(
                     stack,

@@ -13,6 +13,7 @@ class SettingsActivity : AppCompatActivity() {
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        title = "Settings"
 
         binding.button.setOnClickListener {
             finish()

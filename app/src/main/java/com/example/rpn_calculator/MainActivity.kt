@@ -139,11 +139,15 @@ class MainActivity : AppCompatActivity() {
     private fun putInEditor(text: String) {
 
         val editorView = binding.editorView
-        if (text == "0" && editorView.text.isEmpty()) {
+        if (text == "0" && editorView.text.toString() == "0") {
             return
         }
-        if (text == "." && (editorView.text.isBlank() || editorView.text.contains("."))) {
-            return
+        if (text == ".") {
+            if (editorView.text.contains(".")) {
+                return
+            } else if (editorView.text.isBlank()) {
+                editorView.append("0")
+            }
         }
         editorView.append(text)
     }

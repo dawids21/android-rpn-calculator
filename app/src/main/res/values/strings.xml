@@ -29,4 +29,5 @@
     <string name="decimalPlacesTextView">Decimal places:</string>
     <string name="decimalPlacesInput">6</string>
     <string name="decimalPlacesHint">Number of decimal places</string>
+    <string name="applyButton">Apply</string>
 </resources>

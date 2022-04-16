@@ -35,6 +35,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.dotButton.setOnClickListener { putInEditor(".") }
 
+        binding.backButton.setOnClickListener {
+            binding.editorView.text =
+                binding.editorView.text.subSequence(0, binding.editorView.text.length - 1)
+        }
+
         binding.enterButton.setOnClickListener {
             val command = AddToStackCalculatorCommand(stack, 5.0)
             Log.i(COMMAND_TAG, "Sending $command")

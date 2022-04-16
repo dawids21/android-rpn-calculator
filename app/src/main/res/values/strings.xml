@@ -24,4 +24,5 @@
     <string name="enterButton">ENTER</string>
     <string name="zeroButton">0</string>
     <string name="dotButton">.</string>
+    <string name="stackViewPlaceholder">%1$d: %2$s</string>
 </resources>

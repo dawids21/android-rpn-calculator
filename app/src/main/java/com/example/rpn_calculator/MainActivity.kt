@@ -41,16 +41,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.enterButton.setOnClickListener {
-            val command = AddToStackCalculatorCommand(stack, 5.0)
+            val command =
+                AddToStackCalculatorCommand(stack, binding.editorView.text.toString().toDouble())
             Log.i(COMMAND_TAG, "Sending $command")
             commandHandler.handle(command)
             Log.i(STACK_TAG, "Current stack: $stack")
+            binding.editorView.text = ""
+            refreshStackViews()
         }
 
         binding.undoButton.setOnClickListener {
             Log.i(COMMAND_TAG, "Undo command")
             commandHandler.undo()
             Log.i(STACK_TAG, "Current stack: $stack")
+            refreshStackViews()
         }
     }
 
@@ -64,5 +68,27 @@ class MainActivity : AppCompatActivity() {
             return
         }
         editorView.append(text)
+    }
+
+    private fun refreshStackViews() {
+        val stackViews = listOf(
+            binding.firstStack, binding.secondStack,
+            binding.thirdStack, binding.fourthStack
+        )
+
+        if (stack.count() <= 4) {
+            for ((index, number) in stack.withIndex()) {
+                stackViews[index].text =
+                    getString(R.string.stackViewPlaceholder, index + 1, number.toString())
+            }
+            return
+        }
+
+        val start = stack.count() - 4
+
+        for (index in start until stack.count()) {
+            stackViews[index - start].text =
+                getString(R.string.stackViewPlaceholder, index + 1, stack[index].toString())
+        }
     }
 }

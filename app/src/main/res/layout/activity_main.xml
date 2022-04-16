@@ -322,6 +322,7 @@
             android:id="@+id/editorView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text=""
             android:textAlignment="textEnd"
             android:textSize="24sp" />
     </LinearLayout>

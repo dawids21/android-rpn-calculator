@@ -14,6 +14,7 @@ class CalculatorCommandHandler {
         val result = command.execute()
         if (result.isSuccess()) {
             commands.addLast(command)
+            return
         }
         Log.e(TAG, "Command failure: $command, message: ${result.getMessage()}")
     }

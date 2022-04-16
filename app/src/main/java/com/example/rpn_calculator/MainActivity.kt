@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private val stack: ArrayDeque<Double> = ArrayDeque()
     private val commandHandler = CalculatorCommandHandler()
+    private val appSettings = AppSettings()
 
     private lateinit var binding: ActivityMainBinding
 
@@ -24,6 +25,10 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         refreshStackViews()
+        binding.firstStack.setBackgroundColor(appSettings.stackBackgroundColor)
+        binding.firstStack.setBackgroundColor(appSettings.stackBackgroundColor)
+        binding.firstStack.setBackgroundColor(appSettings.stackBackgroundColor)
+        binding.firstStack.setBackgroundColor(appSettings.stackBackgroundColor)
 
         val numberButtons = listOf(
             binding.zeroButton, binding.oneButton, binding.twoButton, binding.threeButton,

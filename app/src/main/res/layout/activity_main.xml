@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/editorView"
         android:layout_width="293dp"
         android:layout_height="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -162,7 +162,6 @@
                 android:layout_width="50dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"
-                android:background="/@empty"
                 android:text="@string/multiplyButton" />
 
             <Button

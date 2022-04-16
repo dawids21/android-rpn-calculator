@@ -28,10 +28,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         title = "RPN Calculator"
         refreshStackViews()
-        binding.firstStack.setBackgroundColor(appSettings.stackBackgroundColor)
-        binding.firstStack.setBackgroundColor(appSettings.stackBackgroundColor)
-        binding.firstStack.setBackgroundColor(appSettings.stackBackgroundColor)
-        binding.firstStack.setBackgroundColor(appSettings.stackBackgroundColor)
 
         val numberButtons = listOf(
             binding.zeroButton, binding.oneButton, binding.twoButton, binding.threeButton,
@@ -178,6 +174,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showSettings() {
         val intent = Intent(this, SettingsActivity::class.java)
+        intent.putExtra(SettingsActivity.DECIMAL_PLACES_EXTRA_NAME, appSettings.decimalPlaces)
         startActivity(intent)
     }
 }

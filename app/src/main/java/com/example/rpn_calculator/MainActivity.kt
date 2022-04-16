@@ -1,5 +1,6 @@
 package com.example.rpn_calculator
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -114,6 +115,10 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
+        binding.settingsButton.setOnClickListener {
+            showSettings()
+        }
+
         binding.undoButton.setOnClickListener {
             Log.i(COMMAND_TAG, "Undo command")
             commandHandler.undo()
@@ -156,5 +161,10 @@ class MainActivity : AppCompatActivity() {
             stackViews[index - start].text =
                 getString(R.string.stackViewPlaceholder, index + 1, number)
         }
+    }
+
+    private fun showSettings() {
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
     }
 }

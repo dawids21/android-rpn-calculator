@@ -14,9 +14,5 @@ class SettingsActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         title = "Settings"
-
-        binding.button.setOnClickListener {
-            finish()
-        }
     }
 }

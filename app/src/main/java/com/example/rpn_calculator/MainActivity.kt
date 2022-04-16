@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        refreshStackViews()
 
         val numberButtons = listOf(
             binding.zeroButton, binding.oneButton, binding.twoButton, binding.threeButton,
@@ -143,19 +144,14 @@ class MainActivity : AppCompatActivity() {
             binding.thirdStack, binding.fourthStack
         )
 
-        if (stack.count() <= 4) {
-            for ((index, number) in stack.withIndex()) {
-                stackViews[index].text =
-                    getString(R.string.stackViewPlaceholder, index + 1, number.toString())
-            }
-            return
-        }
+        stackViews.forEach { it.text = "" }
 
-        val start = stack.count() - 4
+        val start = if (stack.count() > 4) stack.count() - 4 else 0
 
-        for (index in start until stack.count()) {
+        for (index in start until start + 4) {
+            val number = if (stack.count() - 1 >= index) stack[index].toString() else ""
             stackViews[index - start].text =
-                getString(R.string.stackViewPlaceholder, index + 1, stack[index].toString())
+                getString(R.string.stackViewPlaceholder, index + 1, number)
         }
     }
 }

@@ -37,6 +37,9 @@ class MainActivity : AppCompatActivity() {
         binding.dotButton.setOnClickListener { putInEditor(".") }
 
         binding.backButton.setOnClickListener {
+            if (binding.editorView.text.isEmpty()) {
+                return@setOnClickListener
+            }
             binding.editorView.text =
                 binding.editorView.text.subSequence(0, binding.editorView.text.length - 1)
         }

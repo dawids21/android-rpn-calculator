@@ -1,8 +1,10 @@
 package com.example.rpn_calculator
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rpn_calculator.databinding.ActivityMainBinding
 import java.math.BigDecimal
@@ -175,6 +177,24 @@ class MainActivity : AppCompatActivity() {
     private fun showSettings() {
         val intent = Intent(this, SettingsActivity::class.java)
         intent.putExtra(SettingsActivity.DECIMAL_PLACES_EXTRA_NAME, appSettings.decimalPlaces)
-        startActivity(intent)
+
+
+        activityLauncher.launch(intent)
     }
+
+    private val activityLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data ?: return@registerForActivityResult
+                if (!data.hasExtra(SettingsActivity.DECIMAL_PLACES_EXTRA_NAME)) {
+                    return@registerForActivityResult
+                }
+                appSettings.decimalPlaces =
+                    data.getIntExtra(
+                        SettingsActivity.DECIMAL_PLACES_EXTRA_NAME,
+                        appSettings.decimalPlaces
+                    )
+                refreshStackViews()
+            }
+        }
 }

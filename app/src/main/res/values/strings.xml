@@ -26,9 +26,7 @@
     <string name="dotButton">.</string>
     <string name="stackViewPlaceholder">%1$d: %2$s</string>
     <string name="settingsButton">Settings</string>
-    <string name="stackBackgroundColorTextView">Stack background color:</string>
     <string name="decimalPlacesTextView">Decimal places:</string>
     <string name="decimalPlacesInput">6</string>
-    <string name="stackBackgroundColorDesc">Stack background color</string>
     <string name="decimalPlacesHint">Number of decimal places</string>
 </resources>

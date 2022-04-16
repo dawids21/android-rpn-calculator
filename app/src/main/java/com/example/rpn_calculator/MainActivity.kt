@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rpn_calculator.databinding.ActivityMainBinding
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class MainActivity : AppCompatActivity() {
 
@@ -162,7 +164,9 @@ class MainActivity : AppCompatActivity() {
         val start = if (stack.count() > 4) stack.count() - 4 else 0
 
         for (index in start until start + 4) {
-            val number = if (stack.count() - 1 >= index) stack[index].toString() else ""
+            val number = if (stack.count() - 1 >= index)
+                BigDecimal(stack[index]).setScale(appSettings.decimalPlaces, RoundingMode.HALF_UP)
+                    .toString() else ""
             stackViews[index - start].text =
                 getString(R.string.stackViewPlaceholder, index + 1, number)
         }

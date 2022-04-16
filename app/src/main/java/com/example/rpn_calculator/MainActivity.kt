@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.button.setOnClickListener {
+        binding.enterButton.setOnClickListener {
             val command = AddToStackCalculatorCommand(stack, 5.0)
             Log.i(COMMAND_TAG, "Sending $command")
             commandHandler.handle(command)

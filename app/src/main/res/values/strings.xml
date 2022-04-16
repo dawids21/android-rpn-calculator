@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">rpn-calculator</string>
+    <string name="dropButton">DROP</string>
+    <string name="squareRootButton">√</string>
+    <string name="swapButton">SWAP</string>
+    <string name="allClearButton">AC</string>
+    <string name="undoButton">UNDO</string>
+    <string name="twoButton">2</string>
+    <string name="subtractButton">-</string>
+    <string name="threeButton">3</string>
+    <string name="addButton">+</string>
+    <string name="oneButton">1</string>
+    <string name="sixButton">6</string>
+    <string name="fourButton">4</string>
+    <string name="multiplyButton">x</string>
+    <string name="divideButton">/</string>
+    <string name="fiveButton">5</string>
+    <string name="nineButton">9</string>
+    <string name="sevenButton">7</string>
+    <string name="eightButton">8</string>
+    <string name="exponentButton">^</string>
+    <string name="backButton"><![CDATA[<-]]></string>
+    <string name="negateButton">+/-</string>
+    <string name="enterButton">ENTER</string>
+    <string name="zeroButton">0</string>
+    <string name="dotButton">.</string>
 </resources>

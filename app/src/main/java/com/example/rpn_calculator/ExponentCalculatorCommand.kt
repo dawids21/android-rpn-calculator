@@ -2,7 +2,7 @@ package com.example.rpn_calculator
 
 import kotlin.math.pow
 
-class PowerCalculatorCommand(private val stack: ArrayDeque<Double>) : CalculatorCommand {
+class ExponentCalculatorCommand(private val stack: ArrayDeque<Double>) : CalculatorCommand {
 
     private var a = 0.0
     private var b = 0.0

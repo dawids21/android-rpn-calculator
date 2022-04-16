@@ -6,6 +6,7 @@ class ClearCalculatorCommand(private val stack: ArrayDeque<Double>) : Calculator
 
     override fun execute(): CommandResult {
         stack.forEach { clearedNumbers.add(it) }
+        stack.clear()
         return SuccessCommandResult()
     }
 

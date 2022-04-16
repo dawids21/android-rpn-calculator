@@ -40,14 +40,74 @@ class MainActivity : AppCompatActivity() {
                 binding.editorView.text.subSequence(0, binding.editorView.text.length - 1)
         }
 
+        binding.addButton.setOnClickListener {
+            sendCommand(
+                AddCalculatorCommand(stack)
+            )
+        }
+
+        binding.subtractButton.setOnClickListener {
+            sendCommand(
+                SubtractCalculatorCommand(stack)
+            )
+        }
+
+        binding.multiplyButton.setOnClickListener {
+            sendCommand(
+                MultiplyCalculatorCommand(stack)
+            )
+        }
+
+        binding.divideButton.setOnClickListener {
+            sendCommand(
+                DivideCalculatorCommand(stack)
+            )
+        }
+
+        binding.exponentButton.setOnClickListener {
+            sendCommand(
+                ExponentCalculatorCommand(stack)
+            )
+        }
+
+        binding.squareRootButton.setOnClickListener {
+            sendCommand(
+                SquareRootCalculatorCommand(stack)
+            )
+        }
+
+        binding.dropButton.setOnClickListener {
+            sendCommand(
+                RemoveStackCalculatorCommand(stack)
+            )
+        }
+
+        binding.swapButton.setOnClickListener {
+            sendCommand(
+                SwapCalculatorCommand(stack)
+            )
+        }
+
         binding.enterButton.setOnClickListener {
-            val command =
-                AddToStackCalculatorCommand(stack, binding.editorView.text.toString().toDouble())
-            Log.i(COMMAND_TAG, "Sending $command")
-            commandHandler.handle(command)
-            Log.i(STACK_TAG, "Current stack: $stack")
+            sendCommand(
+                AddToStackCalculatorCommand(
+                    stack,
+                    binding.editorView.text.toString().toDouble()
+                )
+            )
             binding.editorView.text = ""
-            refreshStackViews()
+        }
+
+        binding.allClearButton.setOnClickListener {
+            sendCommand(
+                ClearCalculatorCommand(stack)
+            )
+        }
+
+        binding.negateButton.setOnClickListener {
+            sendCommand(
+                NegateCalculatorCommand(stack)
+            )
         }
 
         binding.undoButton.setOnClickListener {
@@ -68,6 +128,13 @@ class MainActivity : AppCompatActivity() {
             return
         }
         editorView.append(text)
+    }
+
+    private fun sendCommand(command: CalculatorCommand) {
+        Log.i(COMMAND_TAG, "Sending $command")
+        commandHandler.handle(command)
+        Log.i(STACK_TAG, "Current stack: $stack")
+        refreshStackViews()
     }
 
     private fun refreshStackViews() {

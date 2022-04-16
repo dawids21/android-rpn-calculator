@@ -23,7 +23,12 @@ class SettingsActivity : AppCompatActivity() {
             val data = Intent()
             val numberInput = findViewById<TextView>(R.id.decimalPlacesInput)
             if (numberInput.text.isNotBlank()) {
-                data.putExtra(DECIMAL_PLACES_EXTRA_NAME, numberInput.text.toString().toInt())
+                val decimalPlaces = numberInput.text.toString().toInt()
+                if (decimalPlaces > 20) {
+                    data.putExtra(DECIMAL_PLACES_EXTRA_NAME, 20)
+                } else {
+                    data.putExtra(DECIMAL_PLACES_EXTRA_NAME, decimalPlaces)
+                }
             }
             setResult(Activity.RESULT_OK, data)
             finish()

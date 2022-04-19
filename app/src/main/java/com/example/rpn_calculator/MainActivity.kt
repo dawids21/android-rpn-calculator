@@ -101,6 +101,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.enterButton.setOnClickListener {
             if (binding.editorView.text.isBlank()) {
+                sendCommand(
+                    AddToStackCalculatorCommand(stack, null)
+                )
                 return@setOnClickListener
             }
             sendCommand(

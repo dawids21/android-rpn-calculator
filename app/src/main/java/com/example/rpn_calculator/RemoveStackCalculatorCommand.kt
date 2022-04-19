@@ -8,11 +8,11 @@ class RemoveStackCalculatorCommand(private val stack: ArrayDeque<Double>) : Calc
         if (stack.count() < 1) {
             return FailureCommandResult("Not enough numbers on the stack")
         }
-        number = stack.removeLast()
+        number = stack.removeFirst()
         return SuccessCommandResult()
     }
 
     override fun undo() {
-        stack.addLast(number)
+        stack.addFirst(number)
     }
 }

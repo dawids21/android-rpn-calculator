@@ -182,7 +182,6 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, SettingsActivity::class.java)
         intent.putExtra(SettingsActivity.DECIMAL_PLACES_EXTRA_NAME, appSettings.decimalPlaces)
 
-
         activityLauncher.launch(intent)
     }
 

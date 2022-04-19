@@ -10,15 +10,15 @@ class SubtractCalculatorCommand(private val stack: ArrayDeque<Double>) : Calcula
             return FailureCommandResult("Not enough numbers on the stack")
         }
 
-        b = stack.removeLast()
-        a = stack.removeLast()
-        stack.addLast(a - b)
+        b = stack.removeFirst()
+        a = stack.removeFirst()
+        stack.addFirst(a - b)
         return SuccessCommandResult()
     }
 
     override fun undo() {
-        stack.removeLast()
-        stack.addLast(a)
-        stack.addLast(b)
+        stack.removeFirst()
+        stack.addFirst(a)
+        stack.addFirst(b)
     }
 }

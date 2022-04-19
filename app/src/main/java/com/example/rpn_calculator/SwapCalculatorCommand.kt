@@ -16,9 +16,9 @@ class SwapCalculatorCommand(private val stack: ArrayDeque<Double>) : CalculatorC
     }
 
     private fun swap() {
-        val tempA = stack.removeLast()
-        val tempB = stack.removeLast()
-        stack.addLast(tempA)
-        stack.addLast(tempB)
+        val tempA = stack.removeFirst()
+        val tempB = stack.removeFirst()
+        stack.addFirst(tempA)
+        stack.addFirst(tempB)
     }
 }

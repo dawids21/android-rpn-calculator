@@ -10,19 +10,19 @@ class DivideCalculatorCommand(private val stack: ArrayDeque<Double>) : Calculato
             return FailureCommandResult("Not enough numbers on the stack")
         }
 
-        b = stack.removeLast()
+        b = stack.removeFirst()
         if (b == 0.0) {
-            stack.addLast(b)
+            stack.addFirst(b)
             return FailureCommandResult("Can not divide by zero")
         }
-        a = stack.removeLast()
-        stack.addLast(a / b)
+        a = stack.removeFirst()
+        stack.addFirst(a / b)
         return SuccessCommandResult()
     }
 
     override fun undo() {
-        stack.removeLast()
-        stack.addLast(a)
-        stack.addLast(b)
+        stack.removeFirst()
+        stack.addFirst(a)
+        stack.addFirst(b)
     }
 }

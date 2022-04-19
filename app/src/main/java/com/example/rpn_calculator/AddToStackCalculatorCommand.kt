@@ -8,14 +8,14 @@ class AddToStackCalculatorCommand(
 
     override fun execute(): CommandResult {
         if (number == null) {
-            stack.addLast(stack.last())
+            stack.addFirst(stack.first())
         } else {
-            stack.addLast(number)
+            stack.addFirst(number)
         }
         return SuccessCommandResult()
     }
 
     override fun undo() {
-        stack.removeLast()
+        stack.removeFirst()
     }
 }

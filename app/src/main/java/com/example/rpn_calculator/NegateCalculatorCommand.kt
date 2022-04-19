@@ -8,11 +8,11 @@ class NegateCalculatorCommand(private val stack: ArrayDeque<Double>) : Calculato
             return FailureCommandResult("Not enough numbers on the stack")
         }
 
-        stack.addLast(-stack.removeLast())
+        stack.addFirst(-stack.removeFirst())
         return SuccessCommandResult()
     }
 
     override fun undo() {
-        stack.addLast(-stack.removeLast())
+        stack.addFirst(-stack.removeFirst())
     }
 }

@@ -11,13 +11,13 @@ class SquareRootCalculatorCommand(private val stack: ArrayDeque<Double>) : Calcu
             return FailureCommandResult("Not enough numbers on the stack")
         }
 
-        a = stack.removeLast()
-        stack.addLast(sqrt(a))
+        a = stack.removeFirst()
+        stack.addFirst(sqrt(a))
         return SuccessCommandResult()
     }
 
     override fun undo() {
-        stack.removeLast()
-        stack.addLast(a)
+        stack.removeFirst()
+        stack.addFirst(a)
     }
 }

@@ -295,6 +295,12 @@
         app:layout_constraintVertical_bias="0.25">
 
         <TextView
+            android:id="@+id/numOfStacks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/fourthStack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

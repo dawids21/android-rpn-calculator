@@ -160,6 +160,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refreshStackViews() {
+        binding.numOfStacks.text = getString(R.string.numOfStacksPlaceholder, stack.count())
+
         val stackViews = listOf(
             binding.firstStack, binding.secondStack,
             binding.thirdStack, binding.fourthStack
@@ -167,13 +169,11 @@ class MainActivity : AppCompatActivity() {
 
         stackViews.forEach { it.text = "" }
 
-        val start = if (stack.count() > 4) stack.count() - 4 else 0
-
-        for (index in start until start + 4) {
+        for (index in 0..3) {
             val number = if (stack.count() - 1 >= index)
                 BigDecimal(stack[index]).setScale(appSettings.decimalPlaces, RoundingMode.HALF_UP)
                     .toString() else ""
-            stackViews[index - start].text =
+            stackViews[index].text =
                 getString(R.string.stackViewPlaceholder, index + 1, number)
         }
     }

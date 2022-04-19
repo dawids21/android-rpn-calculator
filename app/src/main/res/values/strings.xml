@@ -25,6 +25,7 @@
     <string name="zeroButton">0</string>
     <string name="dotButton">.</string>
     <string name="stackViewPlaceholder">%1$d: %2$s</string>
+    <string name="numOfStacksPlaceholder">Stacks: %1$d</string>
     <string name="settingsButton">Settings</string>
     <string name="decimalPlacesTextView">Decimal places:</string>
     <string name="decimalPlacesInput">6</string>
